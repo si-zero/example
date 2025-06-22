@@ -1,0 +1,100 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* 수평 중앙 */
+  align-items: center;     /* 수직 중앙 */
+}
+.product_set_title {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form label > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+form label > div button {
+  padding: 4px 8px;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+form label > div button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.form-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 16px;
+}
+
+.form-button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background-color: #bbb;
+}

@@ -1,0 +1,146 @@
+/* 상품 카드 전체 컨테이너 */
+/* 크기 고정, 세로 방향 flex 레이아웃, 테두리와 둥근 모서리, 배경 하얀색 */
+.product-card {
+  position: relative;    /* 좋아요, 장바구니 버튼 위치 지정 위한 기준 */
+  width: 200px;          /* 가로 고정 */
+  height: 280px;         /* 세로 고정 */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  color: #222;           /* 텍스트는 읽기 좋은 어두운 색 */
+  font-size: 14px;       /* 기본 글자 크기 */
+  font-family: sans-serif;
+  flex-shrink: 0;        /* 축소 방지 */
+}
+
+/* placeholder 카드 스타일 */
+/* 테두리와 배경 제거, 그림자 없음, 투명 */
+.product-card.placeholder {
+  border: none;
+  background: transparent;
+  visibility: visible; /* 필요에 따라 숨김 처리 가능 */
+  box-shadow: none;
+}
+
+/* 좋아요 버튼 */
+/* 카드 상단 오른쪽 근처에 절대 위치 지정 */
+/* 버튼 크기 작게, 배경 하얗고 테두리, 중앙 정렬 텍스트 */
+.like-button {
+  position: absolute;
+  top: 5px !important; /* 상단 5px 위치 */
+  left: 170px;         /* 좌측에서 170px 떨어짐 (카드 가로 200px 대비 우측 근처) */
+  width: 24px;
+  height: 18px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* 장바구니 버튼 */
+/* 좋아요 버튼 바로 왼쪽 위치, 스타일 동일 */
+.cart-button {
+  position: absolute;
+  top: 5px !important;
+  left: 140px;         /* 좋아요 버튼 왼쪽에 배치 */
+  width: 24px;
+  height: 18px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* 이미지 표시 영역 */
+/* 고정 크기, 배경은 연한 회색, 가운데 정렬 */
+.image-section {
+  width: 200px;
+  height: 180px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 이미지 자체 */
+/* 부모 크기 내 최대한 맞추되 비율 유지 */
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 텍스트 정보 영역 */
+/* 크기 고정, 내부 여백 있음, 넘치는 텍스트 숨김 */
+.product-info {
+  width: 200px;
+  height: 120px;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 태그 텍스트 */
+/* 약간 작은 글자, 회색 계열 */
+.product-tag {
+  font-size: 14px !important;
+  color: #888;
+  margin: 0;
+}
+
+/* 상품명 */
+/* 약간 굵은 글자, 위아래 여백 적음 */
+.product-name {
+  font-size: 14px;
+  margin: 4px 0 !important;
+  font-weight: bold;
+}
+
+/* 상품 설명 */
+/* 글자 크기 같음, 색은 중간 회색, 한 줄만 표시하며 넘치면 ... 처리 */
+.product-description {
+  font-size: 14px !important;
+  color: #555;
+  margin: 2px 0;
+  white-space: nowrap;       /* 한 줄로 제한 */
+  overflow: hidden;          /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis;   /* 말줄임표 처리 */
+}
+
+/* 인기도와 가격을 한 줄에 표시하는 컨테이너 */
+.product-popularity-price {
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  gap: 12px;                   /* 텍스트 사이 간격 */
+  margin-top: 4px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* 인기도 텍스트 */
+.product-popularity {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* 가격 텍스트 */
+.product-price {
+  font-weight: bold;
+  color: #222;
+  margin: 0; /* 별도 위/아래 여백 제거 */
+}

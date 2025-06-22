@@ -1,0 +1,186 @@
+/* 전역 박스 사이징 (padding, border 포함하여 요소 크기 계산) */
+/* 모든 요소와 ::before, ::after 가상 요소에 box-sizing을 border-box로 적용하여
+   padding과 border가 전체 크기에 포함되도록 설정 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 최상위 루트 컨테이너: 페이지 전체 최대 너비와 가운데 정렬 */
+/* #root는 전체 페이지의 최상위 컨테이너로 최대 너비 1800px 제한,
+   좌우 중앙 정렬, 내부 여백 2rem, 텍스트 중앙 정렬 */
+#root {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 캐러셀 컨테이너: 버튼과 아이템들을 감싸고 상대 위치 지정 */
+/* 캐러셀 전체를 감싸는 영역으로,
+   자식 요소 절대 위치 기준을 위해 position: relative 설정,
+   플렉스 박스로 가로 정렬하며 아이템 수직 중앙 정렬,
+   넘치는 내용 숨기고 좌우 마진 부여 */
+.carousel-container {
+  position: relative;       /* 자식 절대 위치 기준 */
+  display: flex;            /* 가로 정렬 */
+  align-items: center;      /* 수직 가운데 정렬 */
+  width: 100%;              /* 부모 가득 채움 */
+  overflow: hidden;         /* 넘치는 내용 숨김 */
+  margin: 20px 0;           /* 위아래 여백 */
+}
+
+/* 좌우 버튼 공통 스타일 */
+/* 캐러셀 좌우 탐색 버튼 스타일,
+   부모 기준 절대 위치로 세로 중앙에 배치,
+   반투명 검은 배경, 흰색 글자, 둥근 원형 모양,
+   부드러운 배경색 전환 효과 포함 */
+.carousel-button {
+  position: absolute;       /* 부모 기준 절대 위치 */
+  top: 50%;                 /* 세로 중앙 위치 */
+  transform: translateY(-50%); /* 정확한 수직 중앙 보정 */
+  background: rgba(0, 0, 0, 0.3); /* 반투명 배경 */
+  border: none;
+  color: white;             /* 글자 흰색 */
+  font-size: 24px;          /* 버튼 아이콘 크기 */
+  padding: 8px 12px;        /* 클릭 영역 확보 */
+  cursor: pointer;          /* 마우스 커서 포인터 */
+  border-radius: 50%;       /* 동그란 모양 */
+  user-select: none;        /* 텍스트 선택 방지 */
+  transition: background 0.3s ease; /* 배경색 부드러운 전환 */
+  opacity: 0.4;             /* 기본 투명도 */
+  z-index: 10;              /* 다른 요소 위 배치 */
+}
+
+/* 버튼 위치 지정: 왼쪽, 오른쪽 끝에 붙임 */
+/* 좌우 버튼을 각각 왼쪽과 오른쪽 끝에 위치시킴 */
+.carousel-button.left-button {
+  left: 0;
+}
+.carousel-button.right-button {
+  right: 0;
+}
+
+/* 버튼 활성화 시 강조 스타일 */
+/* 활성 상태인 버튼은 배경색을 더 진하게 하고 불투명도 증가 */
+.carousel-button.active {
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;               /* 완전 불투명 */
+}
+/* 활성 버튼에 마우스 오버 시 배경을 더 진하게 변경 */
+.carousel-button.active:hover {
+  background: rgba(0, 0, 0, 0.8); /* 마우스 오버 시 더 진해짐 */
+}
+
+/* 비활성화 버튼은 클릭 불가 표시 */
+/* disabled 상태 버튼은 마우스 커서를 기본값으로 변경 */
+.carousel-button:disabled {
+  cursor: default;
+}
+
+/* 캐러셀 안의 아이템 리스트 스타일 */
+/* 캐러셀 내 아이템들을 가로로 배치하고 간격 유지,
+   축소되지 않도록 하며, 넘치는 부분 숨기고
+   가운데 정렬 및 좌우 패딩 적용 */
+.carousel {
+  display: flex;            /* 가로 배치 */
+  gap: 8px;                 /* 아이템 사이 간격 */
+  flex-shrink: 0;           /* 축소 방지 */
+  width: 100%;
+  overflow: hidden;         /* 넘침 숨김 */
+  justify-content: center;  /* 가운데 정렬 */
+  padding: 0 40px;          /* 좌우 여백 */
+}
+
+/* -------- 이벤트 배너 -------- */
+
+/* 이벤트 배너 전체 박스 */
+/* 고정된 크기(400x500px)와 둥근 테두리, 회색 테두리, 연한 파란색 배경,
+   내부 요소를 세로 방향으로 정렬하며 축소되지 않도록 설정 */
+.event-banner {
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;   /* 회색 테두리 */
+  border-radius: 12px;      /* 모서리 둥글게 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;   /* 세로 정렬 */
+  background-color: #cce4ff; /* 연한 파란 배경 */
+  flex-shrink: 0;           /* 축소 방지 */
+}
+
+/* 배너 이미지 컨테이너: 이미지 중앙 정렬 */
+/* 이미지 영역 크기 지정, 플렉스 박스로 가운데 정렬 */
+.banner-image-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 배너 내 이미지 스타일 */
+/* 이미지가 컨테이너에 맞게 비율 유지하며 최대 크기로 표시 */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* 비율 유지하며 최대 크기 */
+}
+
+/* 배너 텍스트 영역 */
+/* 고정 높이에 패딩, 세로로 정렬하고 왼쪽 정렬,
+   흰색 텍스트 적용 */
+.banner-text {
+  height: 100px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;   /* 세로 정렬 */
+  justify-content: center;  /* 수직 중앙 정렬 */
+  align-items: flex-start;  /* 왼쪽 정렬 */
+  text-align: left;
+  color: #fff;              /* 흰색 텍스트 */
+}
+
+/* 빈 배너 스타일: 보이지 않고 클릭도 안 됨 */
+/* 내용이 없거나 빈 배너를 숨기기 위한 스타일,
+   배경 투명, 테두리 없음, 클릭 이벤트 무시 */
+.event-banner.empty {
+  background-color: transparent;
+  border: none;
+  pointer-events: none;     /* 마우스 이벤트 무시 */
+  box-shadow: none;
+}
+
+/* -------- 반응형 (모바일 등 768px 이하) -------- */
+@media (max-width: 768px) {
+  /* 캐러셀 컨테이너를 세로 방향으로 배치하고 중앙 정렬 */
+  .carousel-container {
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+  }
+
+  /* 캐러셀 내부 아이템을 줄 바꿈 허용 및 중앙 정렬,
+     넘침을 보이도록 변경, 패딩 축소 */
+  .carousel {
+    flex-wrap: wrap;        /* 줄 바꿈 허용 */
+    justify-content: center;
+    overflow: visible;      /* 넘침 보이도록 변경 */
+    padding: 0 20px;        /* 좌우 패딩 줄임 */
+  }
+
+  /* 버튼 위치를 절대 위치에서 문서 흐름으로 변경,
+     변환 효과 제거, 버튼 간 간격 확보, 완전 불투명으로 변경 */
+  .carousel-button {
+    position: static;       /* 버튼 위치 기본 흐름으로 */
+    transform: none;        /* 이동 제거 */
+    margin: 8px;            /* 버튼 사이 여백 */
+    opacity: 1;             /* 버튼 불투명 */
+  }
+
+  /* 이벤트 배너 크기를 화면 너비에 맞게 90%로 조정,
+     최소 너비 제한 해제, 아래쪽 마진 추가 */
+  .event-banner {
+    width: 90% !important;  /* 화면 90% 너비 */
+    min-width: auto !important;
+    margin-bottom: 16px;
+  }
+}

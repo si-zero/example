@@ -1,0 +1,20 @@
+/* WishlistPage.css */
+
+.wishlist-page {
+  max-width: 800px;
+  min-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wishlist-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

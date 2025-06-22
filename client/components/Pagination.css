@@ -1,0 +1,48 @@
+/* 페이지네이션 전체 컨테이너 */
+/* 상단 여백 20px, 가운데 정렬, 버튼 간 간격 6px, 텍스트 선택 방지 */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  user-select: none;
+}
+
+/* 페이지 번호 버튼과 네비게이션(이전/다음) 버튼 공통 스타일 */
+/* 적당한 패딩, 연한 테두리, 흰 배경, 포인터 커서, 볼드 텍스트, 둥근 모서리, 부드러운 색상 전환 */
+/* 텍스트 기본 색상은 검은색 */
+.page-number-button,
+.page-nav-button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #000;
+}
+
+/* 현재 활성화된 페이지 번호 버튼 */
+/* 파란색 배경과 하얀 글자, 테두리도 파란색 */
+.page-number-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* 페이지 번호 또는 네비게이션 버튼에 마우스 오버 시 */
+/* 활성화된 상태(active)나 비활성화(:disabled) 상태가 아닐 때 배경만 살짝 회색으로 변경 */
+/* 텍스트 색상은 기본 유지 */
+.page-number-button:hover:not(.active),
+.page-nav-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+/* 네비게이션 버튼이 비활성화(예: 첫 페이지 이전버튼 비활성)일 때 */
+/* 커서 기본, 투명도 낮춤, 텍스트 회색으로 */
+.page-nav-button:disabled {
+  cursor: default;
+  opacity: 0.5;
+  color: #999;
+}

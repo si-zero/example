@@ -1,0 +1,46 @@
+.title {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 왼쪽과 오른쪽 사이 공간 벌림 */
+  padding: 0 1rem;
+}
+
+/* 왼쪽 고정 + 20px 여백 */
+.logo {
+  background-image: url('/main_logo.png');
+  width: 142px;
+  height: 142px;
+  background-size: cover;
+  margin-left: 20px; /* 왼쪽 여백 20px */
+}
+
+/* 오른쪽 고정 */
+.sideBar {
+  position: static; /* 기존 absolute 위치 해제 */
+  display: flex;
+  gap: 3.5rem;
+  margin-right: 20px; /* 오른쪽 여백 추가 */
+}
+
+.cart {
+  background-image: url('/shop.png');
+  width: 31px;
+  height: 31px;
+  background-size: cover;
+}
+
+.myInfo {
+  background-image: url('/myInfo.png');
+  width: 31px;
+  height: 31px;
+  background-size: cover;
+}
+
+.menu {
+  background-image: url('/menu.png');
+  width: 31px;
+  height: 31px;
+  background-size: cover;
+}

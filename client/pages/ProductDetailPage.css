@@ -1,0 +1,119 @@
+/* 전체 컨테이너 */
+.product-detail-container {
+  padding: 24px;
+  max-width: 1000px;
+  min-width: 800px;
+  margin: auto;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 메인 영역 */
+.product-main-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* 이미지 갤러리 */
+.product-image-gallery {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* 메인 이미지 */
+.main-image {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* 썸네일 리스트 */
+.thumbnail-list {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* 썸네일 이미지 */
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+/* 활성화된 썸네일 */
+.thumbnail.active {
+  border-color: #888;
+}
+
+/* 구매 관련 영역 */
+.product-purchase-section {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 가격 텍스트 */
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* 공통 버튼 스타일 */
+.common-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.common-button:hover {
+  background-color: #0056b3;
+}
+
+/* 상품 설명 영역 */
+.product-description-section {
+  margin-bottom: 32px;
+}
+
+.product-description-section h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.product-description-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-line;
+  color: #333;
+}
+
+/* 연관 상품 영역 */
+.related-products-section {
+  margin-bottom: 32px;
+}
+
+.related-products-section h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.related-products-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

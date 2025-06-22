@@ -1,0 +1,174 @@
+/* 전체 페이지 컨테이너 패딩 */
+.search-page-container {
+  padding: 2rem;
+}
+
+/* 상품 그리드 레이아웃 */
+/* 6열 고정폭 200px, 아이템 간격 16px, 그리드 중앙 정렬 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 200px); /* 6개 컬럼, 각각 200px 고정폭 */
+  gap: 16px;
+  justify-content: center; /* 그리드 전체 중앙 정렬 */
+}
+
+/* 페이지네이션 영역 스타일 */
+/* 위쪽 여백과 텍스트 중앙 정렬 */
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* 페이지네이션 버튼 기본 스타일 */
+/* 좌우 마진, 내부 패딩, 테두리, 배경, 커서 모양 지정 */
+.pagination button {
+  margin: 0 4px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* 활성화된 페이지네이션 버튼 스타일 */
+/* 파란색 배경, 흰색 텍스트, 테두리 색상 변경 */
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* 비활성화된 페이지네이션 버튼 */
+/* 클릭 불가 커서, 투명도 감소 */
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 상품 카드 기본 스타일 */
+/* 고정 크기(200x280), 세로 방향 flex, 테두리와 둥근 모서리,
+   배경 흰색, 텍스트 색 진한 회색, 기본 폰트 설정 */
+.product-card {
+  position: relative;       /* 좋아요, 장바구니 버튼 절대 위치 기준 */
+  width: 200px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  font-size: 14px;
+  font-family: sans-serif;
+  flex-shrink: 0;           /* 부모 컨테이너에 의해 축소 방지 */
+}
+
+/* placeholder 카드 스타일 */
+/* 테두리와 배경 제거, 그림자 없음, 투명 */
+.product-card.placeholder {
+  border: none;
+  background: transparent;
+  visibility: visible;      /* 필요에 따라 숨김 처리 가능 */
+  box-shadow: none;
+}
+
+/* 좋아요, 장바구니 버튼 공통 스타일 */
+.btn-icon {
+  position: absolute;
+  top: 5px !important;
+  width: 24px;
+  height: 18px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* 좋아요 버튼 위치 */
+.like-button {
+  left: 170px;
+}
+
+/* 장바구니 버튼 위치 */
+.cart-button {
+  left: 140px;
+}
+
+/* 이미지 영역 스타일 */
+/* 고정 크기 200x180, 연한 회색 배경, 가운데 정렬 */
+.image-section {
+  width: 200px;
+  height: 180px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 실제 상품 이미지 스타일 */
+/* 컨테이너를 넘지 않고 비율 유지하며 최대 크기로 표시 */
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 텍스트 정보 영역 */
+/* 고정 크기 200x120, 내부 패딩, 박스 사이징 포함,
+   넘치는 텍스트 숨김 처리 */
+.product-info {
+  width: 200px;
+  height: 120px;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 상품 태그 스타일 */
+/* 글자 크기 14px, 회색 텍스트, 외부 마진 제거 */
+.product-tag {
+  font-size: 14px !important;
+  color: #888;
+  margin: 0;
+}
+
+/* 상품 이름 스타일 */
+/* 굵은 글씨, 14px 크기, 상하 마진 조절 */
+.product-name {
+  font-size: 14px;
+  margin: 4px 0 !important;
+  font-weight: bold;
+}
+
+/* 상품 설명 스타일 */
+/* 14px 글자 크기, 진한 회색, 줄 바꿈 없이 넘침 시 말줄임 처리 */
+.product-description {
+  font-size: 14px !important;
+  color: #555;
+  margin: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 상품 가격 스타일 */
+/* 굵은 글씨, 14px 크기, 짙은 검정색, 위쪽 마진 추가 */
+.product-price {
+  font-size: 14px !important;
+  font-weight: bold;
+  color: #222;
+  margin: 4px 0 0 0;
+}
+
+/* 특정 상품 카드에 대한 커스텀 오버라이드 예시 */
+/* 테두리와 배경색을 파란 계열로 변경 */
+.product-card.custom-override {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
