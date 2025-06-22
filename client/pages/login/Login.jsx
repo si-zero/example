@@ -4,7 +4,7 @@ import { useLoading } from "../../context/LoadingContext";
 import { useNavigate } from "react-router-dom";
 import { getApiBase } from "../../utils/getApiBase";
 import { useTitle } from "../../context/TitleContext";
-import "./login.css";
+import "./Login.css";
 
 
 const Login = () => {
