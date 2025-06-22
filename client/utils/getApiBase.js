@@ -1,14 +1,21 @@
 export const getApiBase = () => {
-    const forceLocal = import.meta.env.VITE_FORCE_LOCAL === "true"; // Vite에서 환경변수 접근
-    const serverIp = "192.168.219.100";
-    const clientIp = window.location.hostname;
-  
-    // dev2/dev3 실행 시 localhost 사용(개발 시에 사용할 로컬주소로 반환)
-    if (forceLocal || clientIp === serverIp) {
-      return "http://localhost:3001";
-    }
+  const forceLocal = import.meta.env.VITE_FORCE_LOCAL === "true"; // Vite 환경변수
+  const localUrl = "http://localhost:3001";
+  const railwayUrl = import.meta.env.VITE_RAILWAY_URL; // 배포된 Railway URL을 .env에 등록
 
-    //      (시연 또는 실제 운영 시에 사용될 서버 주소를 반환)
-    return `http://${serverIp}:3001`;
-  };
-  
+  const serverIp = "192.168.219.103";
+  const clientIp = window.location.hostname;
+
+  // 개발 또는 특정 조건일 때 로컬 서버 사용
+  if (forceLocal || clientIp === serverIp) {
+    return localUrl;
+  }
+
+  // 운영(배포) 환경에서는 Railway URL 사용
+  if (railwayUrl) {
+    return railwayUrl;
+  }
+
+  // 기본 fallback (로컬 IP 서버)
+  return `http://${serverIp}:3001`;
+};
