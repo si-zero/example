@@ -19,7 +19,7 @@ const AddOrEditProductPage = () => {
   }, []);
 
   const [form, setForm] = useState({
-    imageUrl: "/images/default.PNG",
+    imageUrl: "/default.PNG",
     category: "스크립트",
     name: "",
     description: "",
